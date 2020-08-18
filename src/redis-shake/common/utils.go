@@ -872,7 +872,8 @@ func RestoreRdbEntry(c redigo.Conn, e *rdb.BinEntry) {
 	// fmt.Printf("key: %v, value: %v params: %v\n", string(e.Key), e.Value, params)
 	// s, err := String(c.Do("restore", params...))
 RESTORE:
-	s, err := redigoCluster.String(c.Do("restore", params...))
+	//s, err := redigoCluster.String(c.Do("restore", params...))
+	s, err := redigoCluster.String(c.Do("resoter", rewrite))
 	if err != nil {
 		/*The reply value of busykey in 2.8 kernel is "target key name is busy",
 		  but in 4.0 kernel is "BUSYKEY Target key name already exists"*/
